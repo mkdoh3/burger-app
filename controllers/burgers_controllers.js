@@ -17,15 +17,20 @@ router.get("/", function (req, res) {
 });
 
 router.post('/api/burgers', function (req, res) {
+    console.log("posr req body!!!!!!!!!!!!!!!!!!!!!!!!!!!!", req.body);
     burger.insertOne("burger_name", req.body.name, function (result) {
         console.log(result);
     });
 })
 
 router.put("/api/burgers/:id", function (req, res) {
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", req.body, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     let condition = "id = " + req.params.id;
+    //couldn't figure out how to get the obj passed to the ajax data option in burger.js
 
-    burger.updateOne(condition, function (result) {
+    let param = req.body;
+
+    burger.updateOne(param, condition, function (result) {
         if (result.changedRows === 0) {
             console.log('not found');
             return res.status(404).end();

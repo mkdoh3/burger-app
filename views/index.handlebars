@@ -5,18 +5,20 @@
 
 
 <ol>
-
     {{#each burgers}} {{#unless devoured}}
     <li> {{burger_name}}<button class="btn btn-secondary btn-sm eat-it" data-id="{{id}}">Eat it!</button></li> {{/unless}} {{/each}}
 </ol>
-
-
+<ol>
+    {{#each burgers}} {{#if devoured}}
+    <li>{{burger_name}}</li>
+    {{/if}} {{/each}}
+</ol>
 
 <section class="container">
     <form>
         <div class="form-group">
             <textarea class="form-control" id="burgerText" cols="3" rows="3"></textarea>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary submit-burger">Submit</button>
         </div>
     </form>
 </section>

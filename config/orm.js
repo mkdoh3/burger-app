@@ -1,15 +1,8 @@
 const connection = require("./connection.js");
 
-//borrowed these helpers from the repo
-function insertQMarks(num) {
-    let arr = [];
 
-    for (var i = 0; i < num; i++) {
-        arr.push("?");
-    }
+//borrowed helper from the repo
 
-    return arr.toString();
-}
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(obj) {
     let arr = [];
@@ -43,16 +36,18 @@ const orm = {
             cb(result);
         });
     },
-    insertOne: function (table, cols, vals, cb) {
+    insertOne: function (table, cols, val, cb) {
         let qs = "INSERT INTO " + table;
         qs += " (";
-        qs += cols.toString();
+        qs += cols;
         qs += ")";
-        qs += "VALUES (";
-        qs += insertQMarks(vals.length);
-        qs += ") ";
+        qs += " VALUES ('";
+        qs += val;
+        qs += "') ";
 
-        connection.query(qs, vals, function (err, result) {
+        console.log(qs)
+
+        connection.query(qs, val, function (err, result) {
             if (err) {
                 throw err;
             }
@@ -60,14 +55,15 @@ const orm = {
             cb(result);
         });
     },
-    updateOne: function (table, Obj, condition, cb) {
+    updateOne: function (table, obj, condition, cb) {
+        console.log(obj)
         let qs = "UPDATE " + table;
         qs += " SET ";
-        qs += objToSql(Obj);
+        qs += objToSql(obj);
         qs += " WHERE ";
         qs += condition;
 
-        connection.query(qs, vals, function (err, result) {
+        connection.query(qs, function (err, result) {
             if (err) {
                 throw err;
             }

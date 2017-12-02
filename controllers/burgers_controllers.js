@@ -2,21 +2,22 @@ const express = require('express');
 
 const router = express.Router();
 
-const burgers = require('../models/burgers.js');
+const burger = require('../models/burgers.js');
 
 
 
 router.get("/", function (req, res) {
-    burgers.selectAll(function (allDaBurgers) {
+    burger.selectAll(function (allDaBurgers) {
         let hbsBurgersObj = {
             burgers: allDaBurgers
         };
+        console.log(hbsBurgersObj)
         res.render('index', hbsBurgersObj)
     });
 });
 
 router.post('/api/burgers', function (req, res) {
-    burgers.insertOne("burger_name", req.body.name, function (result) {
+    burger.insertOne("burger_name", req.body.name, function (result) {
         console.log(result);
     });
 })
@@ -34,3 +35,6 @@ router.put("/api/burgers/:id", function (req, res) {
         }
     });
 });
+
+
+module.exports = router;

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400');
+
+body {
+    background-color: #FFC20F
+}
+
+.container {
+    margin-top: 3em;
+    max-width: 400px;
+}
+
+header img {
+    width: 300px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    -webkit-filter: drop-shadow(4px 4px 2px #666);
+    filter: drop-shadow(4px 4px 2px #666);
+
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #ED1C22;
+    margin-top: 0;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.form-group button {
+    margin-top: 1.5em;
+}

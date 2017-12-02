@@ -33,10 +33,9 @@ function objToSql(obj) {
     return arr.toString();
 }
 
-
 const orm = {
-    selectAll: function (table, cd) {
-        let qs; = "SELECT * FROM" + table + ";";
+    selectAll: function (table, cb) {
+        let qs = "SELECT * FROM " + table + ";";
         connection.query(qs, function (err, result) {
             if (err) {
                 throw err;
@@ -45,7 +44,7 @@ const orm = {
         });
     },
     insertOne: function (table, cols, vals, cb) {
-        let qs = "INSERT INTO" + table;
+        let qs = "INSERT INTO " + table;
         qs += " (";
         qs += cols.toString();
         qs += ")";
@@ -62,7 +61,7 @@ const orm = {
         });
     },
     updateOne: function (table, Obj, condition, cb) {
-        let qs = "UPDATE" + table;
+        let qs = "UPDATE " + table;
         qs += " SET ";
         qs += objToSql(Obj);
         qs += " WHERE ";

@@ -34,3 +34,21 @@ header h1 {
 .form-group button {
     margin-top: 1.5em;
 }
+
+.burgers {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-around;
+}
+
+.toEat {
+    /*    min-height: 100px;*/
+}
+
+.eaten {
+
+    /*    min-height: 100px;*/
+}

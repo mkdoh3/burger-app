@@ -2,7 +2,6 @@ const connection = require("./connection.js");
 
 
 //borrowed helper from the repo
-
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(obj) {
     let arr = [];
@@ -56,7 +55,6 @@ const orm = {
         });
     },
     updateOne: function (table, obj, condition, cb) {
-        console.log(obj)
         let qs = "UPDATE " + table;
         qs += " SET ";
         qs += objToSql(obj);
@@ -69,6 +67,21 @@ const orm = {
             }
             cb(result);
         });
+    },
+    deleteOne: function (table, condition, cb) {
+        console.log('hello from orm')
+        let qs = "DELETE FROM " + table;
+        qs += " WHERE ";
+        qs += condition;
+        connection.query(qs, function (err, res) {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        })
     }
+
+
+
 }
 module.exports = orm;

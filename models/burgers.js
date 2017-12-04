@@ -16,6 +16,12 @@ const burger = {
         orm.updateOne("burgers", obj, condition, function (res) {
             cb(res);
         });
+    },
+    deleteOne: function (condition, cb) {
+        console.log("hello from models. condition: ", condition)
+        orm.deleteOne("burgers", condition, function (res) {
+            cb(res)
+        });
     }
 };
 

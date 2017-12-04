@@ -25,9 +25,18 @@ $(function () {
         }).then(function () {
             console.log("burger added");
 
-        })
+        });
 
+    });
+
+    $(".forget-it").on('click', function (e) {
+        let id = $(this).data("id");
+        console.log("clicked: ", id)
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(function () {
+            location.reload();
+        });
     })
 
-
-})
+});

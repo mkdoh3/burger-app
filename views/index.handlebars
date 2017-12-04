@@ -3,16 +3,22 @@
     <h1>Eat-Da-Burger!</h1>
 </header>
 
+<div class="container-flex burgers">
 
-<ol>
-    {{#each burgers}} {{#unless devoured}}
-    <li> {{burger_name}}<button class="btn btn-secondary btn-sm eat-it" data-id="{{id}}">Eat it!</button></li> {{/unless}} {{/each}}
-</ol>
-<ol>
-    {{#each burgers}} {{#if devoured}}
-    <li>{{burger_name}}</li>
-    {{/if}} {{/each}}
-</ol>
+    <div class="toEat">
+        <ol>
+            {{#each burgers}} {{#unless devoured}}
+            <li> {{burger_name}}<button class="btn btn-secondary btn-sm eat-it" data-id="{{id}}">Eat it!</button></li> {{/unless}} {{/each}}
+        </ol>
+    </div>
+
+    <div class="eaten">
+        <ol> {{#each burgers}} {{#if devoured}}
+            <li> {{burger_name}}<button class="btn btn-secondary btn-sm forget-it" data-id="{{id}}">Forget it!</button></li> {{/if}} {{/each}}
+        </ol>
+
+    </div>
+</div>
 
 <section class="container">
     <form>

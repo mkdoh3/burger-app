@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400');
 
 body {
-    background-color: #FFC20F
+    background-color: #FFC20F;
 }
 
 .container {
@@ -36,19 +36,24 @@ header h1 {
 }
 
 .burgers {
+
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-around;
+    margin-top: 2em;
 }
 
-.toEat {
-    /*    min-height: 100px;*/
+ol li {
+    font-family: 'Roboto', sans-serif;
+    color: #2d2c2b;
+    font-weight: 600;
+    font-size: 1.15em;
 }
 
-.eaten {
+ol button {
+    margin-left: 1em;
 
-    /*    min-height: 100px;*/
 }

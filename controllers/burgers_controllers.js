@@ -17,7 +17,7 @@ router.get("/", function (req, res) {
 
 router.post('/api/burgers', function (req, res) {
     burger.insertOne("burger_name", req.body.name, function (result) {
-        console.log(result);
+        console.log('burger added');
     });
 });
 
@@ -35,7 +35,6 @@ router.put("/api/burgers/:id", function (req, res) {
     });
 
     router.delete("/api/burgers/:id", function (req, res) {
-        console.log("hello from controller!id: ", req.params.id, condition);
         let condition = "id = " + req.params.id;
         burger.deleteOne(condition, function (result) {
             if (result.affectedRows === 0) {

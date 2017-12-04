@@ -60,7 +60,7 @@ const orm = {
         qs += objToSql(obj);
         qs += " WHERE ";
         qs += condition;
-
+        console.log(qs)
         connection.query(qs, function (err, result) {
             if (err) {
                 throw err;
@@ -69,10 +69,10 @@ const orm = {
         });
     },
     deleteOne: function (table, condition, cb) {
-        console.log('hello from orm')
         let qs = "DELETE FROM " + table;
         qs += " WHERE ";
         qs += condition;
+        console.log(qs)
         connection.query(qs, function (err, res) {
             if (err) {
                 throw err;
